@@ -17,6 +17,23 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/book-management', [App\Http\Controllers\BookController::class, 'showBooksTable']);
+Route::get('/add-book', [App\Http\Controllers\BookController::class, 'showNewBookForm']);
+Route::post('/store-book', [App\Http\Controllers\BookController::class,'storeBook']);
+Route::get('/book/delete/{book}', [App\Http\Controllers\BookController::class, 'destroy']);
+Route::get('/book/update/form/{book}', [App\Http\Controllers\BookController::class, 'showUpdateForm']);
+Route::post('/update/{book}', [App\Http\Controllers\BookController::class, 'updateBook']);
+Route::get('/search', [App\Http\Controllers\BookController::class, 'search']);
+Route::get('/books', [App\Http\Controllers\BookController::class, 'showBooks']);
+Route::get('/books/{book}', [App\Http\Controllers\BookController::class, 'showBook']);
+Route::post('/book/{book}/report', [App\Http\Controllers\ReportController::class, 'report']);
+
+
+Route::get('/category-management', [App\Http\Controllers\CategoryController::class, 'showCategories']);
+Route::get('/add-category', [App\Http\Controllers\CategoryController::class, 'showNewCategoryForm']);
+Route::post('/store-category', [App\Http\Controllers\CategoryController::class, 'storeCategory']);
+Route::get('/categories/delete/{category}', [App\Http\Controllers\CategoryController::class, 'destroy']);
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
