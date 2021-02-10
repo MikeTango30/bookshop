@@ -29,10 +29,10 @@ Route::get('/books/{book}', [App\Http\Controllers\BookController::class, 'showBo
 Route::post('/book/{book}/report', [App\Http\Controllers\ReportController::class, 'report']);
 
 
-Route::get('/category-management', [App\Http\Controllers\CategoryController::class, 'showCategories']);
-Route::get('/add-category', [App\Http\Controllers\CategoryController::class, 'showNewCategoryForm']);
-Route::post('/store-category', [App\Http\Controllers\CategoryController::class, 'storeCategory']);
-Route::get('/categories/delete/{category}', [App\Http\Controllers\CategoryController::class, 'destroy']);
+Route::get('/category-management', [App\Http\Controllers\GenreController::class, 'showGenres']);
+Route::get('/add-category', [App\Http\Controllers\GenreController::class, 'showNewGenreForm']);
+Route::post('/store-category', [App\Http\Controllers\GenreController::class, 'storeGenre']);
+Route::get('/categories/delete/{category}', [App\Http\Controllers\GenreController::class, 'destroy']);
 
 Auth::routes();
 
