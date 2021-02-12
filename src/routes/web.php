@@ -13,9 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index']);
 
 Route::get('/book-management', [App\Http\Controllers\BookController::class, 'showBooksTable']);
 Route::get('/add-book', [App\Http\Controllers\BookController::class, 'showNewBookForm']);
